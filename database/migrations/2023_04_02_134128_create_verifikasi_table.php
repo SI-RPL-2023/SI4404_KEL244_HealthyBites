@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('verifikasi', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->string('foto_user');
-            $table->text('alamat');
-            $table->enum('role', ['customer', 'admin']);
-
+            $table->unsignedBigInteger('request_id');
+            $table->foreign('request_id')->references('id')->on('verifikasi');
+            $table->string('verification_type');
+            $table->string('status');
+            $table->date('request_date');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('verifikasi');
     }
 };
