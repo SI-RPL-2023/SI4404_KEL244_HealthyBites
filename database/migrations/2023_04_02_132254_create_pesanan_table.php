@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('orderID');
             $table->foreign('orderID')->references('id')->on('pesanan');
             $table->unsignedBigInteger('customerID');
-            $table->foreign('customertID')->references('id')->on('users');
+            $table->foreign('customerID')->references('id')->on('users');
             $table->date('date');
             $table->string('status');
             $table->integer('totalamount');
