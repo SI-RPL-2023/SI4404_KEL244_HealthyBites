@@ -4,317 +4,88 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/home.css" />
-
-    <!-- Title -->
-    <title>HealthyBites - Home</title>
-    <link
-      rel="shortcut icon"
-      href="../assets/images/Logo-2.svg"
-      type="image/svg+xml"
-    />
-
-    <!-- Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Preload Images -->
-    <link rel="preload" as="image" href="../assets/images/hero-slider-1.jpg" />
-    <link rel="preload" as="image" href="../assets/images/hero-slider-2.jpg" />
-    <link rel="preload" as="image" href="../assets/images/hero-slider-3.jpg" />
+    <title>HealthyBites</title>
   </head>
-
-  <body id="top">
-    <!-- Preloader -->
-    <div class="preload" data-preaload>
-      <div class="circle"></div>
-      <p class="text">HealthyBites</p>
-    </div>
-
-    <!-- Top Bar -->
-    <div class="topbar">
+  <body>
+    <!-- Navbar -->
+    <div class="py-1 bg-black top">
       <div class="container">
-        <address class="topbar-item">
-          <div class="icon">
-            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        <div
+          class="row no-gutters d-flex align-items-start align-items-center px-md-0"
+        >
+          <div class="col-lg-12 d-block">
+            <div class="row d-flex">
+              <div class="col-md pr-4 d-flex topper align-items-center">
+                <div
+                  class="icon mr-2 d-flex justify-content-center align-items-center"
+                >
+                  <span class="icon-phone2"></span>
+                </div>
+                <span class="text">+ 1235 2355 98</span>
+              </div>
+              <div class="col-md pr-4 d-flex topper align-items-center">
+                <div
+                  class="icon mr-2 d-flex justify-content-center align-items-center"
+                >
+                  <span class="icon-paper-plane"></span>
+                </div>
+                <span class="text">youremail@email.com</span>
+              </div>
+              <div
+                class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end"
+              >
+                <p class="mb-0 register-link">
+                  <span>Open hours:</span> <span>Monday - Sunday</span>
+                  <span>8:00AM - 9:00PM</span>
+                </p>
+              </div>
+            </div>
           </div>
-          <span class="span">
-            Telekomunikasi St, Bandung Regency, Indonesia 40257, ID
-          </span>
-        </address>
-
-        <div class="separator"></div>
-
-        <div class="topbar-item item-2">
-          <div class="icon">
-            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-          </div>
-          <span class="span">Daily : 7.00 am to 9.00 pm</span>
         </div>
-
-        <a href="tel:+621234567890" class="topbar-item link">
-          <div class="icon">
-            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">+62 123 456 7890</span>
-        </a>
-
-        <div class="separator"></div>
-
-        <a href="mailto:healthybites@restaurant.com" class="topbar-item link">
-          <div class="icon">
-            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">healthybites@restaurant.com</span>
-        </a>
       </div>
     </div>
-
-    <!-- Header -->
-    <header class="header" data-header>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
       <div class="container">
-        <a href="#" class="logo">
-          <img
-            src="../assets/images/Logo-6.svg"
-            width="180"
-            alt="HealthyBites - Home"
-          />
-        </a>
+        <a class="navbar-brand" href="index.html">Feliciano</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="oi oi-menu"></span> Menu
+        </button>
 
-        <nav class="navbar" data-navbar>
-          <button class="close-btn" aria-label="close menu" data-nav-toggler>
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
-
-          <a href="#" class="logo">
-            <img
-              src="../assets/images/Logo-6.svg"
-              width="180"
-              alt="HealthyBites - Home"
-            />
-          </a>
-
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a href="#home" class="navbar-link hover-underline active">
-                <div class="separator"></div>
-                <span class="span">Home</span>
-              </a>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a href="index.html" class="nav-link">Home</a>
             </li>
-
-            <li class="navbar-item">
-              <a href="#menu" class="navbar-link hover-underline">
-                <div class="separator"></div>
-                <span class="span">Menus</span>
-              </a>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
             </li>
-
-            <li class="navbar-item">
-              <a href="#about" class="navbar-link hover-underline">
-                <div class="separator"></div>
-                <span class="span">About Us</span>
-              </a>
+            <li class="nav-item">
+              <a href="menu.html" class="nav-link">Menu</a>
             </li>
-
-            <li class="navbar-item">
-              <a href="#services" class="navbar-link hover-underline">
-                <div class="separator"></div>
-                <span class="span">Our Services</span>
-              </a>
+            <li class="nav-item">
+              <a href="blog.html" class="nav-link">Stories</a>
             </li>
-
-            <li class="navbar-item">
-              <a href="#contact" class="navbar-link hover-underline">
-                <div class="separator"></div>
-                <span class="span">Contact</span>
-              </a>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item cta">
+              <a href="reservation.html" class="nav-link">Book a table</a>
             </li>
           </ul>
-
-          <div class="text-center">
-            <p class="headline-1 navbar-title">Visit Us</p>
-
-            <address class="body-4">
-              Telekomunikasi St, Bandung Regency, <br />
-              Indonesia 40257, ID
-            </address>
-
-            <p class="body-4 navbar-text">Open: 7.00 am - 9.00 pm</p>
-
-            <a href="mailto:booking@grilli.com" class="body-4 sidebar-link"
-              >booking@healthybites.com</a
-            >
-
-            <div class="separator"></div>
-
-            <p class="contact-label">Booking Request</p>
-
-            <a
-              href="tel:+628123123456"
-              class="body-1 contact-number hover-underline"
-            >
-              +62-123-123456
-            </a>
-          </div>
-        </nav>
-
-        <a href="#" class="btn btn-secondary">
-          <span class="text text-1">Find A Table</span>
-
-          <span class="text text-2" aria-hidden="true">Find A Table</span>
-        </a>
-
-        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-          <span class="line line-1"></span>
-          <span class="line line-2"></span>
-          <span class="line line-3"></span>
-        </button>
-
-        <div class="overlay" data-nav-toggler data-overlay></div>
+        </div>
       </div>
-    </header>
-
-    <article>
-      <!-- Hero -->
-      <section class="hero text-center" aria-label="home" id="home">
-        <ul class="hero-slider" data-hero-slider>
-          <li class="slider-item active" data-hero-slider-item>
-            <div class="slider-bg">
-              <img
-                src="../assets/images/hero-slider-1.jpg"
-                width="1880"
-                height="950"
-                alt=""
-                class="img-cover"
-              />
-            </div>
-
-            <p class="label-2 section-subtitle slider-reveal">
-              Tradational & Hygine
-            </p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              For the love of <br />
-              delicious food
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true"
-                >View Our Menu</span
-              >
-            </a>
-          </li>
-
-          <li class="slider-item" data-hero-slider-item>
-            <div class="slider-bg">
-              <img
-                src="../assets/images/hero-slider-2.jpg"
-                width="1880"
-                height="950"
-                alt=""
-                class="img-cover"
-              />
-            </div>
-
-            <p class="label-2 section-subtitle slider-reveal">
-              delightful experience
-            </p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              Flavors Inspired by <br />
-              the Seasons
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true"
-                >View Our Menu</span
-              >
-            </a>
-          </li>
-
-          <li class="slider-item" data-hero-slider-item>
-            <div class="slider-bg">
-              <img
-                src="../assets/images/hero-slider-3.jpg"
-                width="1880"
-                height="950"
-                alt=""
-                class="img-cover"
-              />
-            </div>
-
-            <p class="label-2 section-subtitle slider-reveal">
-              amazing & delicious
-            </p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              Where every flavor <br />
-              tells a story
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true"
-                >View Our Menu</span
-              >
-            </a>
-          </li>
-        </ul>
-
-        <button
-          class="slider-btn prev"
-          aria-label="slide to previous"
-          data-prev-btn
-        >
-          <ion-icon name="chevron-back"></ion-icon>
-        </button>
-
-        <button
-          class="slider-btn next"
-          aria-label="slide to next"
-          data-next-btn
-        >
-          <ion-icon name="chevron-forward"></ion-icon>
-        </button>
-
-        <a href="#" class="hero-btn has-after">
-          <img
-            src="../assets/images/hero-icon.png"
-            width="48"
-            height="48"
-            alt="booking icon"
-          />
-
-          <span class="label-2 text-center span">Book A Table</span>
-        </a>
-      </section>
-
-    <!-- JS -->
-    <script src="../assets/js/script.js"></script>
+    </nav>
+    <!-- End Navbar -->
   </body>
 </html>
