@@ -17,10 +17,17 @@ use App\Http\Controllers\AuthController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/',['as'=>'/login','uses'=> 'AuthController@ShowFormLogin']);
+// Route::get('/',['as'=>'/login','uses'=> 'AuthController@ShowFormLogin']);
+
+Route::get('/',['as'=>'/landingpage','uses'=> 'LandingPage@Landing']);
+Route::get('home',['as'=>'home','uses'=> 'LandingPage@Landing']);
+
 Route::get('login',['as'=> 'login','uses'=>'AuthController@ShowFormLogin']);
 Route::post('login', ['as'=>'login_post','uses'=>'AuthController@login'] );
 Route::get('logout', ['as'=>'logout','uses'=>'AuthController@logout']);
+Route::get('register',['as'=> 'register','uses'=>'RegisterController@register']);
+Route::post('saveregister',['as'=> 'saveregister','uses'=>'RegisterController@saveregister']);
+
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard
