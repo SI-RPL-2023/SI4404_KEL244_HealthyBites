@@ -2,12 +2,12 @@
 @section('content')
 
 <div class="toolbar" id="kt_toolbar">
-    <div class=" container-fluid  d-flex flex-stack flex-wrap flex-sm-nowrap">
+    <div class="container-fluid d-flex justify-content-between flex-stack flex-wrap flex-sm-nowrap">
         <!--begin::Info-->
         <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
             <!--begin::Title-->
             <h1 class="text-dark fw-bold my-1 fs-2">
-                Category <small class="text-muted fs-6 fw-normal ms-1"></small>
+                Content Layanan <small class="text-muted fs-6 fw-normal ms-1"></small>
             </h1>
             <!--end::Title-->
 
@@ -16,7 +16,7 @@
                 <li class="breadcrumb-item text-muted">
                     <a href="" class="text-muted text-hover-primary">Master Data</a>
                 </li>
-                <li class="breadcrumb-item text-muted">Category </li>
+                <li class="breadcrumb-item text-muted">Content Layanan </li>
             </ul>
             <!--end::Breadcrumb-->
         </div>
@@ -29,7 +29,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                 </svg>
-                Add Category
+                Add Content
             </a>
             <!--end::Add product-->
         </div>
@@ -41,44 +41,90 @@
 <div class="post fs-6 d-flex flex-column-fluid" id="kt_post">
     <!--begin::Container-->
     <div class="container-xxl min-w-100">
-        <div class="row">
+        <!--begin::Products-->
+
+        <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-10" id="myTab">
+        
+            @foreach ($arr as $key => $val)
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 @if ($key == 0) active @endif" data-bs-toggle="tab" href="#tabs_content_{{$val->id}}">{{ucwords($val->name)}}</a>
+                </li>
+            @endforeach
+            
+        </ul>
+        <!--begin::Tab content-->
+        <div class="tab-content">
 
             @foreach ($arr as $key => $val)
-                <div class="col-3">
-                    <div class="card  card-xl-stretch mb-xl-8">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="position-relative">
-                                        <img src="{{asset('img/category').'/'.$val->foto}}" class="w-100" alt="">
-                                        <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
-                                    </div>                                        
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-center w-100 mb-8">
-                                <span class="fw-bolder text-dark fs-2">{{strtoupper($val->name)}}</span>
-                            </div>
-                            <div class="d-flex justify-content-between w-100">
-                                <span class="fw-bolder text-muted fs-2">{{ 'Rp '. number_format($val->price, 0, ',', '.') }}</span>
-                                <a href="" class="btn btn btn-info me-3">Edit</a>
-                            </div>
+                <div class="tab-pane fade @if ($key == 0) show active @endif" id="tabs_content_{{$val->id}}" role="tab-panel">
+                    <div class="card card-flush">
+                        <div class="card-body pt-0">
+                            <!--begin::Table-->
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="main_table">
+                                <!--begin::Table head-->
+                                <thead>
+                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th>NO</th>
+                                        <th>NAME</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>STATUS</th>
+                                        <th class="text-center">ACTION</th>
+                                    </tr>
+                                </thead>
+                                <!--end::Table head-->
+
+                                <!--begin::Table body-->
+                                <tbody class="fw-semibold text-gray-600">
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    
+                                    @foreach ($content as $k => $v)
+                                        @if ($v->id_layanan == $val->id)
+                                            <tr>
+                                                <td>{{$no++}}</td>
+                                                <td>{{ucwords($v->name)}}</td>
+                                                <td>{{ucfirst($v->content)}}</td>
+                                                <td>
+                                                    @if ($v->is_active == 1)
+                                                        <div class="badge badge-light-success">Active</div>
+                                                    @else
+                                                        <div class="badge badge-light-danger">Inactive</div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button type="button" class="btn btn-info me-3" data-name="edit_data" data-item="">
+                                                            Edit
+                                                        </button>
+                                                        <button type="button" data-name="save_data" class="btn btn-danger">
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                    
+                                </tbody>
+                                <!--end::Table body-->
+                            </table>
+                            <!--end::Table-->
                         </div>
                     </div>
                 </div>
             @endforeach
+
         </div>
+
     </div>
-    <!--end::Container-->
 </div>
-<!--end::Post-->
 
 <div class="modal fade" id="add_data" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <div class="modal-content">
             <div class="modal-header" id="">
-                <h2>Add New Category</h2>
+                <h2>Add New Content</h2>
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                     <span class="svg-icon svg-icon-1">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -93,6 +139,18 @@
             </div>
             <div class="modal-body py-10 px-lg-17">
 
+                <div class="col-md-12 fv-row fv-plugins-icon-container">
+                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                        <span class="required">LAYANAN</span>
+                    </label>
+                    <select name="id_layanan" data-name="id_layanan" data-control="select2" data-dropdown-parent="#add_data" data-placeholder="Select a Layanan..." class="form-select form-select-solid">
+                        <option value="">Select a Layanan...</option>
+                        @foreach ($arr as $key => $val)
+                            <option value="{{$val->id}}">{{ucwords($val->name)}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="d-flex flex-column mb-8 fv-row">
                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                         <span class="required">NAME</span>
@@ -102,19 +160,11 @@
 
                 <div class="d-flex flex-column mb-8 fv-row">
                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                        <span class="required">PRICE</span>
+                        <span class="required">CONTENT</span>
                     </label>
-                    <input type="text" class="form-control form-control-solid" placeholder="Price" name="price" data-name="price" id="price"/>
+                    <textarea name="content" data-name="content" id="content" rows="5" class="form-control form-control-solid" placeholder="Content"></textarea>
                 </div>
 
-                <div class="col-md-12 fv-row fv-plugins-icon-container">
-                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                        <span class="required">FOTO</span>
-                    </label>
-                    <input type="file" class="form-control form-control-solid" name="add_image" id="foto"/>
-                </div>
-
-                <input type="hidden" id="foto_name" name="foto_name" data-name="img">
             </div>
             <div class="modal-footer flex-center">
                 <button type="button" class="btn btn-danger me-3" data-bs-dismiss="modal">
@@ -132,7 +182,7 @@
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <div class="modal-content">
             <div class="modal-header" id="">
-                <h2>Edit Category</h2>
+                <h2>Edit Layanan</h2>
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                     <span class="svg-icon svg-icon-1">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -169,64 +219,24 @@
 
 {{-- Action Add --}}
 <script>
-    $(function() {
-        $('#price').maskMoney({
-            prefix: 'Rp ',
-            thousands: '.',
-            decimal: ',',
-            precision: 0
-        });
-    });
-
     $(document).on("click", "[data-name='add_data']", function (e) {
         $('[data-name="name"]').val('');
-        $('[data-name="price"]').val('');
-        $('[data-name="img"]').val('');
+        $('[data-name="content"]').val('');
+        $('[data-name="id_layanan"]').trigger("change");
         $('#add_data').modal('show');
-    });
-
-    var btnUpload       = $("#foto");
-    btnUpload.on("change", function(e){
-        var ext = btnUpload.val().split('.').pop().toLowerCase();
-        // console.log(ext)
-        if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Format image failed!'
-            })
-        } else {
-            var uploadedFile = URL.createObjectURL(e.target.files[0]);
-            var photo        = e.target.files[0];
-            var formData    = new FormData();
-            formData.append('add_image', photo);
-            // console.log(formData);
-            $.ajax({
-                url: "{{route('upload_img_cat')}}",
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (res) {
-                    // console.log(res);
-                    $('#foto_name').val(res);
-                }
-            })
-
-        }
     });
 
     $(document).on("click", "[data-name='save_data']", function (e) {
 
         $('.preloader').show();
-        var name    = $('[data-name="name"]').val();
-        var price   = $('[data-name="price"]').val();
-        var foto    = $('[data-name="img"]').val();
+        var id_layanan  = $('[data-name="id_layanan"]').val();
+        var name        = $('[data-name="name"]').val();
+        var content     = $('[data-name="content"]').val();
 
         $.ajax({
             type: "POST",
-            url: "{{ route('addcategory') }}",
-            data: {name:name,price:price,foto:foto},
+            url: "{{ route('addcontentlayanan') }}",
+            data: {id_layanan:id_layanan,name:name,content:content},
             cache: false,
             success: function(data) {
                 $('.preloader').hide();
@@ -290,6 +300,5 @@
         });
     });
 </script>
-
 
 @stop

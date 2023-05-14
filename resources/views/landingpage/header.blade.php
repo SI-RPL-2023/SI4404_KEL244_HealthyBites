@@ -4,9 +4,9 @@
 	<nav class="navbar navbar-expand-xl">
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
-			<a class="navbar-brand" href="index.html">
-				<img class="light-mode-item navbar-brand-item" src="{{asset('assets/plugin_tenp/logo.png')}}" alt="logo">
-				<img class="dark-mode-item navbar-brand-item" src="{{asset('assets/plugin_tenp/logo.png')}}" alt="logo">
+			<a class="navbar-brand" href="">
+				<img class="light-mode-item navbar-brand-item" src="{{asset('/img/iconmini/Logo-6.png')}}" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="{{asset('/img/iconmini/Logo-6.png')}}" alt="logo">
 			</a>
 			<!-- Logo END -->
 
@@ -22,166 +22,72 @@
 			<!-- Main navbar START -->
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
 
+				<!-- Nav category menu START -->
+				<ul class="navbar-nav navbar-nav-scroll me-auto">
+
+				</ul>
+
+				<!-- Nav category menu END -->
+
 				<!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll me-auto">
-					<!-- Nav item 1 Demos -->
-					{{-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sig In / Register</a>
-						<ul class="dropdown-menu" aria-labelledby="demoMenu">
-							<li> <a class="dropdown-item active" href="{{route('login')}}">Sig In</a></li>
-                            <li> <a class="dropdown-item active" href="{{route('login')}}">Register</a></li>
-						</ul>
-					</li> --}}
-
 					<!-- Nav item 2 Pages -->
-					{{-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page 2</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
 						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
-							<!-- Dropdown submenu -->
-							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="#">Course</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="">Sample Page 2</a></li>
-								</ul>
-							</li>
-
-						</ul>
-					</li> --}}
-
-					<!-- Nav item 3 Account -->
-					{{-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page 3</a>
-						<ul class="dropdown-menu" aria-labelledby="accounntMenu">
-							<!-- Dropdown submenu -->
-							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="#"><i class="fas fa-user-tie fa-fw me-1"></i>Instructor</a>
-								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href=""><i class="bi bi-grid-fill fa-fw me-1"></i>Sample Pgae 3</a> </li>
-								</ul>
-							</li>
-
+							<li> <a class="dropdown-item" href="">ALL MENU</a></li>
 							
+							@foreach ($category as $key => $val)
+								<li class="dropdown-submenu dropend">
+									<a class="dropdown-item dropdown-toggle" href="#">{{strtoupper($val->name)}}</a>
+									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+										@foreach ($product as $k => $v)
+                            				@if($v->id_category == $val->id)
+												<li><a class="dropdown-item" href="">{{strtoupper($v->name)}}</a></li>
+											@endif
+										@endforeach
+									</ul>
+								</li>
+							@endforeach
+
 						</ul>
-					</li> --}}
+					</li>
 
 					<!-- Nav item 4 Megamenu-->
-					{{-- <li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page 4</a>
+					<li class="nav-item dropdown dropdown-fullwidth">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layanan</a>
 						<div class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
 							<div class="row p-4 g-4">
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Get started</h6>
-									<hr>
-									<ul class="list-unstyled">
-										<li> <a class="dropdown-item" href="#">Market research</a> </li>
-										<li> <a class="dropdown-item" href="#">Advertising</a> </li>
-										<li> <a class="dropdown-item" href="#">Consumer behavior</a> </li>
-										<li> <a class="dropdown-item" href="#">Digital marketing</a> </li>
-										<li> <a class="dropdown-item" href="#">Marketing ethics</a> </li>
-										<li> <a class="dropdown-item" href="#">Social media marketing</a> </li>
-										<li> <a class="dropdown-item" href="#">Public relations</a> </li>
-										<li> <a class="dropdown-item" href="#">Advertising</a> </li>
-										<li> <a class="dropdown-item" href="#">Decision science</a> </li>
-										<li> <a class="dropdown-item" href="#">SEO</a> </li>
-										<li> <a class="dropdown-item" href="#">Business marketing</a> </li>
-									</ul>
-								</div>
-								
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Degree</h6>
-									<hr>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Contact management</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
+								@foreach ($layanan as $key => $val)
+									<!-- Dropdown column item -->
+									<div class="col-xl-6 col-xxl-3">
+										@foreach ($contentlayanan as $k => $v)
+											@if ($v->id_layanan == $val->id)
+												<h6 class="mb-0">{{ucwords($val->name)}}</h6>
+												<hr>
+												<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
+													<a class="stretched-link h6 mb-0" href="#">{{ucwords($v->name)}}</a>
+													<p class="mb-0 small text-truncate-2">{{ucfirst($v->content)}}.</p>
+												</div>
+											@endif	
+										@endforeach
 									</div>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Sales pipeline</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
-									</div>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Security & Permission</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
-									</div>
-								</div>
+								@endforeach
 
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Certificate</h6>
-									<hr>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-google text-google-icon"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Google SEO certificate</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-linkedin-in text-linkedin"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Business Development Executive(BDE)</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-facebook text-facebook"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Facebook social media marketing</a>
-											<p class="mb-0 small">Expert advice</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fas fa-fw fa-basketball-ball text-dribbble"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Creative graphics design</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-								</div>
-
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Download Eduport</h6>
-									<hr>
-									<!-- Image -->
-									<img src="https://eduport.webestica.com/assets/images/element/14.svg" alt="">
-
-									<!-- Download button -->
-									<div class="row g-2 justify-content-center mt-3">
-										<!-- Google play store button -->
-										<div class="col-6 col-sm-4 col-xxl-6">
-											<a href="#"> <img src="https://eduport.webestica.com/assets/images/client/google-play.svg" class="btn-transition" alt="google-store"> </a>
-										</div>
-										<!-- App store button -->
-										<div class="col-6 col-sm-4 col-xxl-6">
-											<a href="#"> <img src="https://eduport.webestica.com/assets/images/client/app-store.svg" class="btn-transition" alt="app-store"> </a>
-										</div>
-									</div>
-								</div>
-
-								<!-- Action box -->
-								<div class="col-12">
-									<div class="alert alert-success alert-dismissible fade show mt-2 mb-0 rounded-3" role="alert">
-										<!-- Avatar -->
-										<div class="avatar avatar-xs me-2">
-											<img class="avatar-img rounded-circle" src="https://eduport.webestica.com/assets/images/avatar/09.jpg" alt="avatar">
-										</div>
-										<!-- Info -->
-										The personality development class starts at 2:00 pm, click to <a href="#" class="alert-link">Join Now</a>
-									</div>
-								</div>
 							</div>
 						</div>
-					</li> --}}
+					</li>
 
+					<!-- Nav item 3 Account -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang Kami</a>
+						<ul class="dropdown-menu" aria-labelledby="accounntMenu">
+							
+							<li> <a class="dropdown-item" href=""><i class="fas fa-fw fa-user me-1"></i>Loaction</a></li>
+							<li> <a class="dropdown-item" href=""><i class="fas fa-fw fa-user me-1"></i>Artikel</a></li>
+
+						</ul>
+					</li>
 				</ul>
 				<!-- Nav Main menu END -->
 
@@ -222,7 +128,7 @@
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Links -->
 					<li><a class="dropdown-item bg-danger-soft-hover" href="{{route('login')}}"><i class="bi bi-power fa-fw me-2"></i>Sign In</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="{{route('register')}}"><i class="bi bi-power fa-fw me-2"></i>register</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="{{route('register')}}"><i class="bi bi-journals fa-fw me-2"></i>register</a></li>
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Dark mode options START -->
 					<li>

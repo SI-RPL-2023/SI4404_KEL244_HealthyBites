@@ -66,7 +66,29 @@
                 },delay);
             });
         </script>
+
+        <script>
+            $(document).ready(function(){
+                $('a[data-bs-toggle="tab"]').on('show.bs.tab', function(e) {
+                    localStorage.setItem('activeTab', $(e.target).attr('href'));
+                    // console.log($(e.target).attr('href'));
+                });
+
+                var activeTab = localStorage.getItem('activeTab');
+
+                $('#myTab a[href="' + activeTab + '"]').tab('show');
+
+                // console.log(activeTab);
+            });
+        </script>
         <!--end::Theme mode setup on page load-->
+
+        {{-- Convert To ANgka --}}
+        <script>
+            $.fn.convertToAngka = function() {
+                return parseInt($(this).text().replace(/[^0-9]/g, ''));
+            };
+        </script>
     </head>
     <!--end::Head-->
     <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled aside-fixed aside-default-enabled">
