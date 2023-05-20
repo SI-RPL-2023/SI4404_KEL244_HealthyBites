@@ -48,6 +48,25 @@ class CustomerController extends Controller
         return view('Customer.product')->with($data);
     }
 
+    function cuswishlist()
+    {
+        $idn_user   = idn_user(auth::user()->id);
+        $arr        = listcategory();
+        $product    = listproduct();
+        $bahan      = listbahan();
+        $seat       = listseat();
+        $data = array(
+            'idn_user'  => $idn_user,
+            'title'     => 'Product',
+            'arr'       => $arr,
+            'product'   => $product,
+            'bahan'     => $bahan,
+            'seat'      => $seat
+        );
+
+        return view('Customer.wishlist')->with($data);
+    }
+
     function createorder(Request $request)
     {
         $id_product         = $request['id_product'];
@@ -61,7 +80,12 @@ class CustomerController extends Controller
         $countrows          = DB::select("SELECT * FROM trx_order");
         $cn                 = sprintf("%04d",(count($countrows)+1));
         $kode               = "ORD.".date('Y').".".date('m').".".$cn;
-        $id_tahap_order     = 1;
+        if($order_methode == 3){
+            $id_tahap_order     = 4;
+        }else{
+            $id_tahap_order     = 1;
+        }
+        
         $tgl_order          = date('Y-m-d H:i:s');
         $id_user            = auth::user()->id;
 
@@ -108,13 +132,33 @@ class CustomerController extends Controller
 
             $id         = $photo      = $request->get('id');
             $data       = array(
-                'id_tahap_order'        => 4,
+                'id_tahap_order'        => 7,
                 'bukti_pembayaran'      => $fileName
             );
             $update     = actionupdate('trx_order',$id,$data);
 
             return response($fileName);
         }
+    }
+
+    function addwishlist(Request $request)
+    {
+        $id         = $request['id'];
+        $id_usr     = auth::user()->id;
+        $data       = addwishlit($id,$id_usr);
+        return response($data);
+    }
+
+    function conirm_cus_order(Request $request)
+    {
+        $id_order         = $request['id_order'];
+
+        $data       = array(
+            'id_tahap_order'    => 6,
+        );
+        $update     = actionupdate('trx_order',$id_order,$data);
+
+        return response('success');
     }
 
 }
