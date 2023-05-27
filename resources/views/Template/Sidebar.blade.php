@@ -176,41 +176,13 @@
                             </div>
                             <!--end:Menu item-->
 
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a class="menu-link @if (Route::currentRouteName()=='layanan') active @endif" href="{{route('layanan')}}">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Layanan</span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a class="menu-link @if (Route::currentRouteName()=='contentlayanan') active @endif" href="{{route('contentlayanan')}}">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Content Layanan</span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-
-                            
-
                         </div>
                         <!--end:Menu sub-->
                     </div>
                     <!--end:Menu item-->
 
                     <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if (Route::currentRouteName()=='settlandinghome' || Route::currentRouteName()=='role') show @endif">
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion @if (Route::currentRouteName()=='settlandinghome' || Route::currentRouteName()=='setartikel' || Route::currentRouteName()=='setips' || Route::currentRouteName()=='setvidio') show @endif">
                         <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-icon">
@@ -237,6 +209,58 @@
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Home</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link @if (Route::currentRouteName()=='setartikel') active @endif" href="{{route('setartikel')}}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Artikel</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+                            
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link @if (Route::currentRouteName()=='settlandinghome') active @endif" href="{{route('settlandinghome')}}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Weekly Nutrition Challenge</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link @if (Route::currentRouteName()=='setips') active @endif" href="{{route('setips')}}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Healthy Food Tips</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->
+
+                            <!--begin:Menu item-->
+                            <div class="menu-item">
+                                <!--begin:Menu link-->
+                                <a class="menu-link @if (Route::currentRouteName()=='setvidio') active @endif" href="{{route('setvidio')}}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Vidios</span>
                                 </a>
                                 <!--end:Menu link-->
                             </div>

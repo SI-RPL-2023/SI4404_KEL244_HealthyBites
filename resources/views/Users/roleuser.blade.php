@@ -107,7 +107,7 @@
                                         <button type="button" class="btn btn-info me-3" data-name="edit_data" data-item="{{$val->id}},{{$val->name}}">
                                             Edit
                                         </button>
-                                        <button type="button" data-name="save_data" class="btn btn-danger">
+                                        <button type="button" data-name="delete_data" class="btn btn-danger" data-item="{{$val->id}},{{$val->name}}">
                                             Delete
                                         </button>
                                     </div>
@@ -190,7 +190,8 @@
                     <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                         <span class="required">NAME</span>
                     </label>
-                    <input type="text" class="form-control form-control-solid" placeholder="Name" data-name="name_edit"/>
+                    <input type="text" class="form-control form-control-solid" placeholder="Name" name="edit_name"/>
+                    <input type="hidden" name="edit_id">
                 </div>
 
             </div>
@@ -265,9 +266,9 @@
             data: {id:id},
             cache: false,
             success: function(data) {
-                // console.log(data.data['name']);
-                $('[data-name="code_edit"]').val(data.row['code']);
-                $('[data-name="name_edit"]').val(data.row['name']);
+                // console.log(data);
+                $('[name="edit_id"]').val(data.row.id);
+                $('[name="edit_name"]').val(data.row.name);
                 $('#edit_data').modal('show');
                 $('.preloader').hide();
             },            
@@ -284,6 +285,51 @@
                 })
             }
         });
+    });
+</script>
+
+<script>
+    $(document).on("click", "[data-name='save_data_edit']", function (e) {
+        $('.preloader').show();
+        var id          = $('[name="edit_id"]').val();
+        var name        = $('[name="edit_name"]').val();
+        var dats        = {name:name};
+        var table       = "mst_role";
+        var whr         = "id";
+
+        // console.log(password);
+        $.ajax({
+            type: "POST",
+            url: "{{route('edit')}}",
+            data: {id:id,table:table,dats:dats,whr:whr},
+            cache: false,
+            success: function (res) {
+                // console.log(res)
+                $('.preloader').hide();
+                Swal.fire({
+                    position:'center',
+                    title: 'Success!',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then((data) => {
+                    location.reload();
+                })
+            },
+            error: function (data) {
+                $('.preloader').hide();
+                Swal.fire({
+                    position:'center',
+                    title: 'Action Not Valid!',
+                    icon: 'warning',
+                    showConfirmButton: true,
+                    // timer: 1500
+                }).then((data) => {
+                    // location.reload();
+                })
+            }
+        })
+
     });
 </script>
 
@@ -329,6 +375,61 @@
 
     KTUtil.onDOMContentLoaded(function () {
         MainJSTable.init();
+    });
+</script>
+
+<script>
+    $(document).on("click", "[data-name='delete_data']", function (e) {
+        var id      = $(this).attr("data-item").split(",")[0];
+        var name    = $(this).attr("data-item").split(",")[1];
+        var whr     = "id";
+        var table   = "mst_role";
+        
+        Swal.fire({
+            title: 'Anda yakin?',
+            text: 'Aksi ini tidak dapat diulang!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus data!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('delete')}}",
+                    data: {id:id,table:table,whr:whr},
+                    cache: false,
+                    success: function (res) {
+                        // console.log(res)
+                        $('.preloader').hide();
+                        Swal.fire({
+                            position:'center',
+                            title: 'Success!',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((data) => {
+                            location.reload();
+                        })
+                    },
+                    error: function (data) {
+                        $('.preloader').hide();
+                        Swal.fire({
+                            position:'center',
+                            title: 'Action Not Valid!',
+                            icon: 'warning',
+                            showConfirmButton: true,
+                            // timer: 1500
+                        }).then((data) => {
+                            // location.reload();
+                        })
+                    }
+                })
+            }
+        })
+
     });
 </script>
 
