@@ -92,7 +92,7 @@
 
 					<!-- Nav item 3 Account -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang Kami</a>
+						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya</a>
 						<ul class="dropdown-menu" aria-labelledby="accounntMenu">
 							<li> <a class="dropdown-item" href="{{route('artikel')}}"><i class="fas fa-fw fa-file me-1"></i>Artikel</a></li>
 						</ul>
