@@ -437,6 +437,7 @@ function landingdetailprod($id){
         }
     }
 
+    $arr['name_view'] = $data->name;
     $arr['foto']        = $image;
     $arr['price']       = $price;
     $arr['description'] = $description;

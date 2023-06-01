@@ -48,7 +48,7 @@
                     <!--begin:: Card body-->
                     <div class="card-body p-9">
                         <!--begin::Name-->
-                        <div class="fs-3 fw-bold text-dark"> Most Faforite </div>
+                        <div class="fs-3 fw-bold text-dark"> Most Favorite </div>
                         <!--end::Name-->
             
                         <!--begin::Description-->

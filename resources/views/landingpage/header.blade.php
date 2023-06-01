@@ -43,7 +43,7 @@
 									<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
 										@foreach ($product as $k => $v)
                             				@if($v->id_category == $val->id)
-												<li><a class="dropdown-item" href="{{route('menubyid',['id' => 1])}}">{{strtoupper($v->name)}}</a></li>
+												<li><a class="dropdown-item" href="{{route('menubyid',['id' => $v->id])}}">{{strtoupper($v->name)}}</a></li>
 											@endif
 										@endforeach
 									</ul>
@@ -92,7 +92,7 @@
 
 					<!-- Nav item 3 Account -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya</a>
+						<a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tentang Kami</a>
 						<ul class="dropdown-menu" aria-labelledby="accounntMenu">
 							<li> <a class="dropdown-item" href="{{route('artikel')}}"><i class="fas fa-fw fa-file me-1"></i>Artikel</a></li>
 						</ul>

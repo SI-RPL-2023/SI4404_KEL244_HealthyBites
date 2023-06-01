@@ -162,13 +162,13 @@ class LandingPage extends Controller
 
     function menubyid(Request $request)
     {
+        $id         = $request['id'];
         $category   = listcategory();
         $product    = listproduct();
         $layanan    = listlayanan();
         $contentlayanan    = listcontentlayanan();
         $member     = DB::select("SELECT * FROM users WHERE role_id=2 AND is_active=1 LIMIT 4");
         $vid        = collect(\DB::select("SELECT * FROM mst_vidios WHERE is_active=2"))->first();
-        $id         = $request['id'];
         $data = array(
             'title'         => 'Healty Bites',
             'page'          => 'landingpage.menubyid',       
@@ -178,7 +178,7 @@ class LandingPage extends Controller
             'contentlayanan' => $contentlayanan,
             'member'        => $member,
             'vid'           => $vid,
-            'id'            => $id
+            'idmn'            => $id
         );
 
         return view('landingpage.list')->with($data);

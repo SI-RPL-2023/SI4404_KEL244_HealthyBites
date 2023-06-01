@@ -221,7 +221,7 @@
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
-                                    <span class="menu-title">Artikel</span>
+                                    <span class="menu-title">Article</span>
                                 </a>
                                 <!--end:Menu link-->
                             </div>
@@ -260,7 +260,7 @@
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
-                                    <span class="menu-title">Vidios</span>
+                                    <span class="menu-title">Videos</span>
                                 </a>
                                 <!--end:Menu link-->
                             </div>
@@ -273,7 +273,7 @@
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
-                                    <span class="menu-title">Sett Konsultasi</span>
+                                    <span class="menu-title">Set Konsultasi</span>
                                 </a>
                                 <!--end:Menu link-->
                             </div>
@@ -335,7 +335,7 @@
                                 </span>
                                 <!--end::Svg Icon-->
                             </span>
-                            <span class="menu-title">Produk</span>
+                            <span class="menu-title">Product</span>
                             <span class="menu-arrow"></span>
                         </span>
                         <!--end:Menu link-->
